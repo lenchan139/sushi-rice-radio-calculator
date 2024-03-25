@@ -1,0 +1,43 @@
+<div class="all">
+<div class="title">
+  <h1>Sushi Rice Radio Calculator</h1>
+</div>
+
+<div class="RadioT">
+  Cooking Rice In A Cooker
+  Ingredients Input:
+  <ul>
+    @for (k of arrConstAllCookingItem; track $index) {
+      <li>
+         {{mapItemNumbers.get(k)||0}} of {{k}} <button (click)="changeValue(k)">change</button>
+      </li>
+    }
+  </ul>
+</div>
+<hr/>
+<div class="inputTarget">
+  <select (change)="onSelectChange($event)" #selectX>
+ @for (k of arrConstAllCookingItem; track $index) {
+  <option [value]="k">
+      {{k}}
+  </option>
+ }
+  </select>
+  <input #inputX type="number" value="3"  /> pcs
+  <button (click)="startCalculate()">
+    caculate
+  </button>
+</div>
+<hr/>
+<br/>
+<div class="result">
+ Your new radio:
+ <ul>
+  @for (k of arrConstAllCookingItem; track $index) {
+    <li>
+       {{outputMaps.get(k)||0}} of {{k}}
+    </li>
+  }
+</ul>
+</div>
+</div>
